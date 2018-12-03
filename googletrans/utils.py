@@ -26,7 +26,7 @@ def legacy_format_json(original):
     # save state
     states = []
     text = original
-    
+
     # save position for double-quoted texts
     for i, pos in enumerate(re.finditer('"', text)):
         # pos.start() is a double-quote
@@ -50,7 +50,6 @@ def legacy_format_json(original):
             # replacing a portion of a string
             # use slicing to extract those parts of the original string to be kept
             text = text[:p] + states[j][1] + text[nxt:]
-
     converted = json.loads(text)
     return converted
 
